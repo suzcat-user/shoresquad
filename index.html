@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoreSquad — Rally your crew & clean the shore</title>
+    <meta name="description" content="ShoreSquad helps young crews organize beach cleanups with maps, local weather, and social features.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="" crossorigin=""/>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <div class="brand">
+                <img src="css/logo-placeholder.svg" alt="" aria-hidden="true" class="logo">
+                <h1 class="site-title">ShoreSquad</h1>
+            </div>
+            <nav aria-label="Main navigation">
+                <ul class="nav">
+                    <li><a href="#map">Map</a></li>
+                    <li><a href="#weather">Weather</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#join" class="cta">Join the Squad</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" class="container">
+        <section class="hero" aria-labelledby="hero-title">
+            <div>
+                <h2 id="hero-title">Rally your crew, track weather, and hit the next beach cleanup</h2>
+                <p class="lead">ShoreSquad makes eco-action social — find events, check weather, and plan with your friends.</p>
+                <p class="hero-cta">
+                    <button id="locateBtn" class="btn primary" aria-label="Use my location to find nearby cleanups">Find nearby cleanups</button>
+                    <a href="#events" class="btn ghost">Browse events</a>
+                </p>
+            </div>
+        </section>
+<section id="map" class="panel" aria-labelledby="map-title">
+    <h3 id="map-title">Map — local cleanups & spots</h3>
+    <p class="muted">Tap a marker to see details, add one of your own, or filter by date.</p>
+
+    
+    <!-- Next Cleanup: Google Maps embed for Pasir Ris -->
+    <div class="panel" style="margin-top:1rem;">
+        <h4 id="nextCleanupTitle">Next Cleanup — Pasir Ris</h4>
+        <p class="muted">Cleanup begins at Street View Asia coordinates 1.381497, 103.955574.</p>
+
+        <!-- Google Maps iframe showing a pin at the coordinates.
+             The query places a marker at the lat,lng; adjust zoom (&z) if needed. -->
+        <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(6,53,71,0.06)">
+            <iframe
+                title="Google Map — Next Cleanup at Pasir Ris"
+                src="https://www.google.com/maps?q=1.381497,103.955574&z=17&output=embed"
+                width="100%"
+                height="320"
+                style="border:0;display:block"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                aria-label="Google Map showing Next Cleanup pin at Pasir Ris, coordinates 1.381497, 103.955574">
+            </iframe>
+        </div>
+
+        <p class="muted" style="margin-top:0.5rem;">
+            <a href="https://www.google.com/maps?q=1.381497,103.955574" target="_blank" rel="noopener">Open in Google Maps</a>
+            &nbsp;•&nbsp;
+            <a href="https://www.google.com/maps/@1.381497,103.955574,3a,75y,90t/data=!3m8!1e1" target="_blank" rel="noopener">Open Street View</a>
+        </p>
+    </div>
+</section>
+        
+        <section id="weather" class="panel grid" aria-labelledby="weather-title">
+            <div class="card">
+                <h4 id="weather-title">Local Weather</h4>
+                <div id="weatherCard" class="weather-card" aria-live="polite">
+                    <p class="muted" id="weatherLoading">Weather will appear here — allow geolocation or search a place.</p>
+                </div>
+            </div>
+
+            <aside class="card small" aria-labelledby="tips-title">
+                <h5 id="tips-title">Cleanup Tips</h5>
+                <ul>
+                    <li>Bring gloves & reusable bags</li>
+                    <li>Check tide & wind before you go</li>
+                    <li>Post your haul with #ShoreSquad</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section id="events" class="panel" aria-labelledby="events-title">
+            <h3 id="events-title">Upcoming cleanups</h3>
+            <ul id="eventsList" class="events-list" aria-live="polite">
+                <!-- JS will inject events -->
+            </ul>
+            <p class="muted">Want to create an event? <button id="createEventBtn" class="btn outline">Create event</button></p>
+        </section>
+
+        <section id="join" class="panel callout" aria-labelledby="join-title">
+            <div>
+                <h3 id="join-title">Join the Squad</h3>
+                <p class="muted">Sign up for event alerts and crew coordination.</p>
+                <form id="signupForm" class="signup-form" aria-label="Sign up for ShoreSquad">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" required placeholder="Your name">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" required placeholder="you@email.com">
+                    <button type="submit" class="btn primary">Get notified</button>
+                </form>
+            </div>
+            <div>
+                <p class="muted"><strong>Privacy:</strong> We won't spam — events only.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-inner">
+            <p>&copy; <span id="year">2025</span> ShoreSquad. Built for people who love beaches.</p>
+            <ul class="footer-links">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Code of Conduct</a></li>
+                <li><a href="#">Privacy</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    
+    <script src="js/app.js" type="module"></script>
+</body>
+</html>

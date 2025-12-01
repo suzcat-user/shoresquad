@@ -1,0 +1,10 @@
+{
+    "liveServer.settings.port": 5500,
+    "liveServer.settings.root": "/",
+    "liveServer.settings.ignoreFiles": [
+        ".vscode/**",
+        "node_modules/**",
+        ".DS_Store"
+    ],
+    "liveServer.settings.wait": 500
+}

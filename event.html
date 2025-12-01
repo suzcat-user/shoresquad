@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Events — ShoreSquad</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand"><div class="logo" aria-hidden="true"></div><h1 class="site-title">ShoreSquad</h1></div>
+      <nav aria-label="Main navigation">
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="create.html" class="cta">Create Event</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Upcoming cleanups</h2>
+      <p class="muted">Find local cleanups — click an event for details.</p>
+      <ul id="eventsList" class="events-list" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner"><p>&copy; 2025 ShoreSquad</p></div>
+  </footer>
+
+  <script type="module" src="js/events.js"></script>
+</body>
+</html>
